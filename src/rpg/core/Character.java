@@ -34,7 +34,7 @@ public class Character {
 
     // Description du personnage
     public String getDescription() {
-        return String.format("Character: %s [Force: %d, Agilité: %d, Intelligence: %d, Puissance: %d]",
+        return String.format(" %s [Force: %d, Agilité: %d, Intelligence: %d, Puissance: %d]",
                 name, strength, agility, intelligence, getPowerLevel());
     }
 
