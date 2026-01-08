@@ -7,6 +7,7 @@ public abstract class CharacterDecorator extends Character {
 
     public CharacterDecorator(Character character) {
         super(character.getName(),
+                character.getRole(),
                 character.getStrength(),
                 character.getAgility(),
                 character.getIntelligence());

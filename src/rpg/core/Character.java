@@ -2,12 +2,14 @@ package rpg.core;
 
 public class Character {
     private String name;
+    private String role;
     private int strength;
     private int agility;
     private int intelligence;
 
-    public Character(String name, int strength, int agility, int intelligence) {
+    public Character(String name,String role, int strength, int agility, int intelligence) {
         this.name = name;
+        this.role = role;
         this.strength = strength;
         this.agility = agility;
         this.intelligence = intelligence;
@@ -16,6 +18,9 @@ public class Character {
     // Getters
     public String getName() {
         return name;
+    }
+    public String getRole() {
+        return role;
     }
     public int getStrength() {
         return strength;
@@ -34,8 +39,8 @@ public class Character {
 
     // Description du personnage
     public String getDescription() {
-        return String.format(" %s [Force: %d, Agilité: %d, Intelligence: %d, Puissance: %d]",
-                name, strength, agility, intelligence, getPowerLevel());
+        return String.format("%s - %s [Force: %d, Agilité: %d, Intelligence: %d, Puissance: %d]",
+                role, name, strength, agility, intelligence, getPowerLevel());
     }
 
     @Override
