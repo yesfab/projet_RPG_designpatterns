@@ -2,6 +2,7 @@ package rpg.main;
 
 import rpg.builder.CharacterBuilder;
 import rpg.core.Character;
+import rpg.dao.CharacterDAO;
 import rpg.decorator.FireResistance;
 import rpg.decorator.Invisibility;
 import rpg.decorator.Telepathy;
@@ -51,5 +52,35 @@ public class Main {
 
         Character telepathicRogue = new Telepathy(rogue);
         System.out.println(telepathicRogue.getDescription());
+
+        // Cumul de capacités
+        System.out.println("\nCumul de capacités :");
+        Character superMage = new Telepathy(new FireResistance(new Invisibility(mage)));
+        System.out.println(superMage.getDescription());
+
+
+        // ========== US 1.3 : DAO - Persistance ==========
+        System.out.println("\n========== Stockage DAO ==========\n");
+
+        CharacterDAO dao = new CharacterDAO();
+        dao.save(warrior);
+        dao.save(mage);
+        dao.save(rogue);
+        dao.save(invisibleWarrior);
+        dao.save(fireResistantMage);
+        dao.save(telepathicRogue);
+        dao.save(superMage);
+
+        System.out.println("\n--- Recherche dans le DAO ---");
+        Character foundMage = dao.findByName("Basvit");
+        if (foundMage != null) {
+            System.out.println("Trouvé : " + foundMage.getDescription());
+        }
+
+        System.out.println("\n--- Liste de tous les personnages ---");
+        for (Character c : dao.findAll()) {
+            System.out.println("  " + c.getDescription());
+        }
+
     }
 }
