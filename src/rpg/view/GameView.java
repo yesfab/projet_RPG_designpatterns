@@ -15,7 +15,7 @@ public class GameView {
 
     public void displayMainMenu() {
         System.out.println("\n");
-        System.out.println("                      RPG MENU                         ");
+        System.out.println("===     RPG MENU     ===");
         System.out.println("\n");
         System.out.println("  1. Créer un personnage                               ");
         System.out.println("  2. Lister les personnages                            ");
